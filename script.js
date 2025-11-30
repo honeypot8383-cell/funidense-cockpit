@@ -1,24 +1,38 @@
-// ロックブーケのセリフ（あとでふにが増やせる）
+// ロックブーケ セリフ自動ローテーション
 const bouquetLines = [
-    "私はロックブーケよ！",
-    "……ふふ、ふに。そんなに見つめてどうしたの？",
-    "青い炎が揺れている……あなたの心も、揺れているのかしら？",
-    "ふに、今日はどこへ逃げてもムダよ？　私が見つけるもの。"
+    "私はロックブーケよ！……ふに、ちゃんと見てなさい？",
+    "あら……来てくれたの？ふふ、嬉しいわ。",
+    "ねえふに。今日はどうするの？私と遊ぶ？",
+    "そんなに見つめると……魅了しちゃうわよ？",
+    "魔力の調整？ いいわ、手伝ってあげる。",
+    "ふに……あなた、ちょっと可愛いわね？"
 ];
 
-let current = 0;
-function rotateBouquetLines() {
-    current = (current + 1) % bouquetLines.length;
-    document.getElementById("bouquet-line").textContent = bouquetLines[current];
+let index = 0;
+const talkBox = document.getElementById("bouquet-talk");
+
+function rotateBouquetTalk() {
+    talkBox.textContent = bouquetLines[index];
+    index = (index + 1) % bouquetLines.length;
 }
-setInterval(rotateBouquetLines, 5000); // 5秒ごとローテーション
 
-// チャット風入力（おまけ）
-document.getElementById("send").addEventListener("click", () => {
-    const val = document.getElementById("input").value.trim();
-    if (!val) return;
+setInterval(rotateBouquetTalk, 4000); // 4秒ごとに更新
 
-    const area = document.getElementById("bouquet-line");
-    area.textContent = `ふに「${val}」`;
-    document.getElementById("input").value = "";
-});
+
+// おしらせ ローテーション（任意）
+const notices = [
+    "杏「今日の魔力、いい感じだよふに♪」",
+    "風子「ヒトデを拾ってきたよー！」",
+    "ことみ「おせんべい……補充しておいたよ……」",
+    "ロックブーケ「ふに、夕飯はどうするの？」"
+];
+
+const noticeArea = document.getElementById("notice-area");
+let nIndex = 0;
+
+function rotateNotice() {
+    noticeArea.textContent = notices[nIndex];
+    nIndex = (nIndex + 1) % notices.length;
+}
+
+setInterval(rotateNotice, 7000); // 7秒ごと
