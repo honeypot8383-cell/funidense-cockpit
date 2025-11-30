@@ -1,107 +1,76 @@
 body {
     margin: 0;
-    background: #0b0f1a;
-    color: #e4eaff;
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Yu Gothic", sans-serif;
+    background: #0c0f18;
+    color: #e8ecf3;
 }
 
-#app {
+/* 固定ヘッダー */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #131829;
+    border-bottom: 2px solid #29314a;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.location {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.notice {
+    font-size: 16px;
+    color: #bcdcff;
+}
+
+/* レイアウト本体 */
+.layout {
     display: grid;
-    grid-template-columns: 250px 1fr 300px;
-    height: 100vh;
+    grid-template-columns: 220px 1fr 240px;
+    gap: 20px;
+    padding: 130px 20px 20px; /* ヘッダーぶん下げる */
 }
 
 /* 左パネル */
 .left-panel {
-    background: #091020;
-    padding: 20px;
-    border-right: 1px solid #1d273a;
+    background: #121726;
+    padding: 15px;
+    border-radius: 6px;
+    height: 80vh;
     overflow-y: auto;
 }
+
 .left-panel h2 {
-    font-size: 14px;
-    margin-bottom: 15px;
-    color: #6ea8ff;
-}
-.left-panel ul {
-    list-style: none;
-    padding: 0;
-}
-.left-panel li {
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #1d273a;
-}
-.left-panel .desc {
-    font-size: 12px;
-    color: #90a0c0;
+    margin-top: 0;
 }
 
-/* メインパネル */
-.main-panel {
+/* 中央パネル */
+.center-panel {
+    background: #141927;
     padding: 20px;
-    background: #0f1728;
-    display: flex;
-    flex-direction: column;
-}
-
-.status-fixed {
-    background: rgba(255,255,255,0.05);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-.notice {
-    margin-top: 5px;
-}
-
-.dialogue-area {
-    flex: 1;
-    background: rgba(255,255,255,0.04);
-    border-radius: 8px;
-    padding: 20px;
-    font-size: 20px;
-}
-
-.input-area {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-.input-area input {
-    flex: 1;
-    padding: 10px;
     border-radius: 6px;
-    border: none;
 }
-.input-area button {
-    padding: 10px 20px;
-    background: #6ea8ff;
-    color: #000;
-    border: none;
-    border-radius: 6px;
+
+.talk-box {
+    margin-top: 16px;
+    padding: 12px;
+    background: #1b2237;
+    border-left: 4px solid #6bb8ff;
+    border-radius: 4px;
+    min-height: 80px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* 右パネル */
 .right-panel {
-    background: #091020;
-    border-left: 1px solid #1d273a;
-    padding: 20px;
-}
-.right-panel h2 {
-    font-size: 14px;
-    color: #6ea8ff;
-    margin-bottom: 20px;
-}
-
-.status-box {
-    background: rgba(255,255,255,0.05);
+    background: #121726;
     padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-.status-box h3 {
-    margin-top: 0;
-    font-size: 13px;
-    color: #87b7ff;
+    border-radius: 6px;
+    height: 80vh;
+    overflow-y: auto;
 }
