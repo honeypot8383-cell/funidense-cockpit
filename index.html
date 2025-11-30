@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>FuniDense Cockpit - Rock Bouquet Edition</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>FuniDense Cockpit – Rock Bouquet Edition</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <header class="top-title">
-        <h1>FuniDense Cockpit – Rock Bouquet Edition</h1>
+    <!-- 固定ヘッダー：現在地＋おしらせ -->
+    <header class="fixed-header">
+        <div class="location">
+            🏠 現在地：フニデンス市 ＞ フニ区 ＞ ふにの家 ＞ リビング
+        </div>
+        <div class="notice" id="notice-area">
+            杏「今日の魔力、いい感じだよふに♪」
+        </div>
     </header>
 
+    <!-- 3 カラムレイアウト -->
     <div class="layout">
 
-        <!-- 左カラム：キャラ一覧 -->
+        <!-- 左：キャラ一覧 -->
         <aside class="left-panel">
             <h2>CHARACTERS</h2>
             <ul>
@@ -25,45 +32,27 @@
             </ul>
         </aside>
 
-        <!-- 中央カラム：本文 / 現在地 + おしらせ + セリフ -->
+        <!-- 中央：本文（セリフ自動ローテーション） -->
         <main class="center-panel">
-            <div class="info-bar">
-                <div class="status-box">現在地：🏙️ フニデンス市 ＞ 💠 フニ区 ＞ 🏠 ふにの家 ＞ 💺 リビング</div>
-                <div class="notice-box">おしらせ：ロックブーケちゃんが魔力調整中……</div>
-            </div>
-
-            <div class="speech-area">
-                <h2>ロックブーケのことば</h2>
-                <div id="bouquet-line" class="bouquet-line">
-                    ……読み込み中……
-                </div>
+            <h2>ロックブーケのことば</h2>
+            <div id="bouquet-talk" class="talk-box">
+                ……ふふ、ふに。そんなに見つめてどうしたの？  
             </div>
         </main>
 
-        <!-- 右カラム：ステータス -->
+        <!-- 右：ステータス -->
         <aside class="right-panel">
             <h2>STATUS</h2>
-
-            <div class="status-block">
-                <p>魔力バルーン：良好</p>
-                <p>魅了フィールド：30％（安全）</p>
-                <p>城塞スペーク：杏と接近時 ↑ 上昇の可能性</p>
-            </div>
-
-            <h2>TODAY SCHEDULE</h2>
-            <ul class="schedule">
-                <li>09:00　メールチェック</li>
-                <li>11:00　作業タイム</li>
-                <li>14:00　小休憩（おせんべい）</li>
-                <li>18:00　自由時間</li>
-                <li>22:00　FuniDense日常タイム</li>
+            <ul>
+                <li>魔力バルーン：良好</li>
+                <li>魅了フィールド：30%（安全）</li>
+                <li>精神波：安定</li>
+                <li>危険シグナル：なし</li>
             </ul>
-
         </aside>
 
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
