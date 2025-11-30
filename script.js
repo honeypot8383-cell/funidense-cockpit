@@ -36,3 +36,61 @@ function rotateNotice() {
 }
 
 setInterval(rotateNotice, 7000); // 7秒ごと
+
+//--------------------------------------------------
+// ふにの発言欄 → ロックブーケ応答
+//--------------------------------------------------
+
+const funiInput = document.getElementById("funiInput");
+const sendBtn = document.getElementById("sendBtn");
+const chatLog = document.getElementById("chatLog");
+
+// ロックブーケの軽い返事パターン
+const bouquetReplies = [
+    "ふに……かわいいこと言うじゃない。",
+    "ふふっ、もっと話して？",
+    "それで……ふにはどうしたいの？",
+    "あなたの声、好きよ？",
+    "そんなふうに言われたら……魅了しちゃうわよ？",
+    "安心して、ずっとそばにいるわ。",
+];
+
+function bouquetReply() {
+    const idx = Math.floor(Math.random() * bouquetReplies.length);
+    return bouquetReplies[idx];
+}
+
+// 送信処理
+function sendMessage() {
+    const text = funiInput.value.trim();
+    if (!text) return;
+
+    // ふにの発言を追加
+    const funiMsg = document.createElement("div");
+    funiMsg.className = "funi";
+    funiMsg.textContent = "ふに：「" + text + "」";
+    chatLog.appendChild(funiMsg);
+
+    // ロックブーケの返事
+    setTimeout(() => {
+        const bou = document.createElement("div");
+        bou.className = "bouquet";
+        bou.textContent = "ロックブーケ：「" + bouquetReply() + "」";
+        chatLog.appendChild(bou);
+
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }, 600);
+
+    funiInput.value = "";
+}
+
+// ボタン
+sendBtn.addEventListener("click", sendMessage);
+
+// Enterキー
+funiInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+
